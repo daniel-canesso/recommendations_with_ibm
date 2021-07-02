@@ -13986,7 +13986,7 @@ Your top_20 looks like the solution list! Nice job.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_similar_users</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">user_item</span><span class="o">=</span><span class="n">user_item</span><span class="p">):</span>
@@ -14014,7 +14014,7 @@ Your top_20 looks like the solution list! Nice job.
         <span class="n">most_similar_users</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">=</span> <span class="n">dot_product</span>
         
     <span class="c1"># sort by similarity</span>
-    <span class="n">most_similar_users</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">most_similar_users</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">most_similar_users</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">most_similar_users</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
     
     <span class="c1"># create list of just the ids</span>
     <span class="n">most_similar_users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">most_similar_users</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -14033,7 +14033,7 @@ Your top_20 looks like the solution list! Nice job.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do a spot check of your function</span>
@@ -14056,9 +14056,9 @@ Your top_20 looks like the solution list! Nice job.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The 10 most similar users to user 1 are: [5, 12, 16, 18, 19, 20, 25, 29, 39, 47]
-The 5 most similar users to user 3933 are: [5, 12, 16, 18, 19]
-The 3 most similar users to user 46 are: [16, 18, 20]
+<pre>The 10 most similar users to user 1 are: [3933, 23, 3782, 203, 4459, 131, 3870, 46, 4201, 49]
+The 5 most similar users to user 3933 are: [1, 23, 3782, 203, 4459]
+The 3 most similar users to user 46 are: [4201, 23, 3782]
 </pre>
 </div>
 </div>
@@ -14915,7 +14915,8 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>in the class in question, the matrix was composed of notes that each user gave for a given film. In the matrix of this work, it is composed only if the user interacted or not with a certain article.</strong></p>
+<p><strong>In class, the matrix contained a numeric value that represented a user's grade for a movie, and null if the user hadn't already seen the movie. This type of array, with missing values cannot be handled by Numpy's SVD. The best method is FunkSVD.
+In this exercise, if the user has interacted with the article, the interaction is represented by 1, and if it has not yet interacted with 0, that is, there are no null values, which allows the use of Numpy's SVD.</strong></p>
 
 </div>
 </div>
@@ -15374,7 +15375,9 @@ The top 10 recommendations for user 20 are the following article names:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Your response here.</strong></p>
+<p>The results obtained between the training base and the test were inverse. In the training base, with the increase in the number of latent variables, the accuracy increased, whereas in the test base it was the opposite. This could be due to the test base containing only 20 users who were also present in the training base. With this, the latent variables that we learned in the training base were not relevant to the test, causing these distortions, or the famous overfit.</p>
+<p>In a production environment, where the scenario is similar to this one, where most users were not present in our training base, we can start recommending using the most popular articles, to build a knowledge base of these users' tastes. .</p>
+<p>We can use an A/B test to validate that the recommended content is being relevant to the user. For this, one group would receive recommendations, for example, based on the most read articles, and another group based on matrix factorization. Separation can use the user ID on the platform. In order for us to predict how long the study would take, we would need data on how many articles users read per day, week, and month. This data was not available. The metric we can track is that of clicks on recommendations made, that is, whether the recommended content caught the reader's attention.</p>
 
 </div>
 </div>
@@ -15397,7 +15400,7 @@ The top 10 recommendations for user 20 are the following article names:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -15405,6 +15408,26 @@ The top 10 recommendations for user 20 are the following article names:
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[109]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
